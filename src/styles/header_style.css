@@ -1,0 +1,18 @@
+.header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: aqua;
+}
+
+.container_background{
+    display: flex;
+    justify-content:center ;
+    align-items: center;
+    width: 100%;
+}
+.header_img{
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+}

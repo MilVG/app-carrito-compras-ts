@@ -1,0 +1,9 @@
+.footer{
+    width: 100%;
+    height: 200px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    align-items: center;
+    background-image: linear-gradient(to right bottom, #dde6ed, #d1dce4, #c5d2db, #b9c9d3, #adbfca, #a1b5c1, #95aab8, #8aa0af, #7c93a4, #6e8698, #60798d, #526d82);
+}
