@@ -39,7 +39,7 @@ function  VaribalesTipados(){
         name:string,
         age:number,
         altura:number,
-        peso:number,
+       peso:number,
         sex:boolean
     }
     /*TAMBIEN PODEMOS UTILIZAR  PARA CREAR UN OBJECTO LA DIRECTIVA DE TYPE */
