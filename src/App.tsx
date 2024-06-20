@@ -4,8 +4,8 @@ import Main from './layouts/Main'
 import './styles/mainaside_style.css'
 import Carrito from './components/Carrito'
 
-
 function App() {
+  
 
   return (
     <>

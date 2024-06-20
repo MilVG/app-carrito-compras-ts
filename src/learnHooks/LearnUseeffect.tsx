@@ -1,15 +1,18 @@
 import {useEffect, useState} from 'react'
 import '../styles/teststylehooks/style_learn_useefect.css'
+import customLog from '../help/customlog'
 export default function LearnUseeffect() {
 
-    const [variable,setVariable] = useState(true)
+    const [variable,setVariable] = useState(false)
     useEffect(()=>{
-        console.log("componente listo")
+      if(variable){
+        customLog("hola")
+      }
     },[variable])
 
     setTimeout(()=>{
-        setVariable(false)
-    },3000)
+        setVariable(true)
+    },5000)
 
   return (
     <div className='div-useefect'>
