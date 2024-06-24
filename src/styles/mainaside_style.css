@@ -1,6 +1,6 @@
 .container_main{
     display: grid;
     grid-template-columns: 100%;
-    grid-auto-rows: minmax(100px, auto);
-    /* background-color: rgb(0, 255, 0); */
+    grid-auto-rows: minmax(400px, auto);
+    /*background-color: rgb(0, 255, 0);*/
 }

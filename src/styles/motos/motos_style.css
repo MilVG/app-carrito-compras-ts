@@ -1,26 +1,24 @@
 
 .motos-container{
-    margin: 10px;
-    padding: 20px;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    /* background-color: aqua; */
-    grid-gap: 10px;
+  display:flex;
+  width:100%;
+  height: 600px;
+  /*background-color: rgba(240, 63, 96, 1);*/
 }
 
 .motos_section{
-  
+    width:100%;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: rgba(165, 166, 170, 0.767);;
+    flex-direction:column;
+    justify-content:space-between;
+    align-items:stretch;
+    background-color: rgba(133, 161, 175, 0.77);
     /* box-shadow: 0 0 3px 3px red; */
     border-radius: 30px;
 }
 
 .motos_img{
-
-  width: 100%;
+  width: 100%;  
   height: 100%;
   object-fit: cover;
   border-top-left-radius: 30px;
@@ -32,21 +30,21 @@
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden; */
-
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
   overflow: hidden;
-  -webkit-padding-start: 20px;
-  -webkit-padding-end: 20px;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
+  text-align:center;
+  margin:10px;
 }
 .details-motos{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  /*background-color:rgba(177, 189, 202, 0.8);*/
   
 }
 .details-motos button{
@@ -68,7 +66,7 @@
 
 .details-motos button:hover{
   transition: 0.2s;
-  background-color: rgba(0, 0, 0, 0.747);
+  background-color: rgba(62, 114, 171, 0.8);
   
 }
 .details-motos h3{
@@ -77,25 +75,4 @@
   font-weight: bold;
 }
 
-@media (width <= 1200px) {
-  .motos-container{
-    margin: 10px;
-    padding: 20px;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-      /* background-color: aqua; */
-    grid-gap: 10px;
-  }
 
-}
-
-@media (width <= 460px) {
-  .motos-container{
-    margin: 10px;
-    padding: 20px;
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-      /* background-color: aqua; */
-    grid-gap: 10px;
-  }
-}

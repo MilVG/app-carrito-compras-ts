@@ -4,15 +4,34 @@ import Main from './layouts/Main'
 import './styles/mainaside_style.css'
 import Carrito from './components/Carrito'
 
+import { Carrito as Cart} from './types/types.ts'
+import { useState } from 'react'
 function App() {
-  
+  const [carrito, setCarrito] = useState<Cart>([])
 
+
+  //camibar el estado de un componente
+  const [isFlex , setIsFlex] = useState<boolean>(false)
+
+  function handleshowCarrito() {
+    setIsFlex(!isFlex)
+  }
   return (
     <>
       <Header />
-      <Carrito/>
+      <Carrito
+        handleshowCarrito={handleshowCarrito}
+        isFlex={isFlex}
+        setCarrito={setCarrito}
+        carrito={carrito}
+      />
       <div  className='container_main' >
-        <Main />
+
+
+        <Main 
+          carrito={carrito}
+          setCarrito={setCarrito}
+        />
       </div>
       <Footer />
     </>
