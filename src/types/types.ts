@@ -3,6 +3,7 @@ export type Motoslist = {
   name: string;
   description: string;
   quantity: number;
+  precio: number;
   img: string;
 }
 
@@ -16,7 +17,7 @@ export type carritoProps = {
 }
 
 export type handleshowCarrito = () => void
-export type carritoPropsRoot={
+export type carritoPropsRoot = {
   carrito: Motoslist[];
   setCarrito: React.Dispatch<React.SetStateAction<Motoslist[]>>
 }

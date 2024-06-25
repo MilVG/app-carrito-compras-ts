@@ -3,6 +3,7 @@ type Moto = {
   name: string;
   description: string;
   quantity: number;
+  precio: number;
   img: string;
 }
 export const listmotos: Array<Moto> = [
@@ -11,6 +12,7 @@ export const listmotos: Array<Moto> = [
     name: "Yamaha",
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, nam! deser carad rebird asert dolrem  sip adristivreds riquerid resurvird",
     quantity: 1,
+    precio: 300,
     img: "moto_1.jpg",
   },
   {
@@ -18,6 +20,7 @@ export const listmotos: Array<Moto> = [
     name: "Honda",
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, nam!",
     quantity: 1,
+    precio: 5000,
     img: "moto_2.jpg",
   },
   {
@@ -25,6 +28,7 @@ export const listmotos: Array<Moto> = [
     name: "Suzuki",
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, nam!",
     quantity: 1,
+    precio: 4000,
     img: "moto_3.jpg",
   },
   {
@@ -32,6 +36,7 @@ export const listmotos: Array<Moto> = [
     name: "Kawasaki",
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, nam!",
     quantity: 1,
+    precio: 7540,
     img: "moto_4.jpg",
   },
   {
@@ -39,6 +44,7 @@ export const listmotos: Array<Moto> = [
     name: "Yamaha",
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, nam!",
     quantity: 1,
+    precio: 5670,
     img: "moto_5.jpg",
   },
   {
@@ -46,6 +52,7 @@ export const listmotos: Array<Moto> = [
     name: "Honda",
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, nam!",
     quantity: 1,
+    precio: 4389,
     img: "moto_6.jpg",
   },
   {
@@ -53,6 +60,7 @@ export const listmotos: Array<Moto> = [
     name: "husqvarna",
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, nam!",
     quantity: 1,
+    precio: 9867,
     img: "moto_7.jpg",
   },
   {
@@ -60,6 +68,7 @@ export const listmotos: Array<Moto> = [
     name: "Suzuki",
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, nam!",
     quantity: 1,
+    precio: 8765,
     img: "moto_8.jpg",
   },
   {
@@ -67,6 +76,7 @@ export const listmotos: Array<Moto> = [
     name: "Kawasaki",
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, nam!",
     quantity: 1,
+    precio: 6789,
     img: "moto_9.jpg",
   },
   {
@@ -74,6 +84,7 @@ export const listmotos: Array<Moto> = [
     name: "Yamaha",
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, nam!",
     quantity: 1,
+    precio: 9876,
     img: "moto_10.jpg",
   },
 ]
