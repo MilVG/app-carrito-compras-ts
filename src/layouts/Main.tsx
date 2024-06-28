@@ -11,13 +11,15 @@ export default function Main( { carrito, setCarrito }:carritoPropsRoot) {
   function handleToCarrito(item: Motoslist) {
     
     const itemExists = carrito.findIndex(moto => moto.id == item.id)
-    if( itemExists >= 0){
-      const updateCarrito = [...carrito]
-      updateCarrito[itemExists].quantity++
-      setCarrito(updateCarrito)
-    }else{
-       setCarrito([...carrito, item])
-    }
+      if( itemExists >= 0){
+        if(carrito[itemExists].quantity >= 5) return
+        const updateCarrito = [...carrito]
+        updateCarrito[itemExists].quantity++
+        setCarrito(updateCarrito)
+      }else{
+        item.quantity = 1
+        setCarrito([...carrito, item])
+      }
   }
   return (
     <main className="main">

@@ -1,12 +1,43 @@
+import { useMemo } from 'react'
 import { Carrito } from '../../types/types.ts'
 export default function ModalCarrito({ isFlex, carrito, setCarrito }: { isFlex: boolean, carrito: Carrito, setCarrito: React.Dispatch<React.SetStateAction<Carrito>> }) {
 
 
-  //const totalCart = () => carrito.reduce((total, item) => total + (item.quantity * item.precio))
+  const totalCart = useMemo(() => carrito.reduce((total, item) => total + (item.quantity * item.precio), 0), [carrito])
+
+  function handleclearCart() {
+    setCarrito([])
+    
+  }
+  function handleDeleteItem(id: number) {
+    const newCarrito = carrito.filter((item) => item.id !== id)
+    setCarrito(newCarrito)
+  }
+
+  function handleIncrementQuantity(id: number) {
+    const newCarrito = carrito.map((item) => {
+      if (item.id === id && item.quantity < 5) {
+        item.quantity++
+      }
+
+      return item
+    })
+    
+    setCarrito(newCarrito)
+  }
+  function handleDescrementQuantity(id:number){
+    const newCarrito = carrito.map((item) =>{
+      if(item.id === id && item.quantity > 1){
+        item.quantity--
+      }
+      return item
+    })
+    setCarrito(newCarrito)
+  }
   return (
     <div className='modal-carrito' style={{ display: isFlex ? 'flex' : 'none' }}>
 
-      <h2 className='title-carrito'> {carrito.length > 0 ? 'TIENES ' + carrito.length + ' ITEMS' : 'El carrito esta vacio Carrito'}</h2>
+      <h2 className='title-carrito'> {carrito.length > 0 ? 'TIENES ' + carrito.length + ' ITEMS' : 'El carrito esta Vacio'}</h2>
 
       <table className='table-carrito'>
         <thead>
@@ -22,11 +53,17 @@ export default function ModalCarrito({ isFlex, carrito, setCarrito }: { isFlex: 
           {carrito.map((moto) => (
 
             <tr key={moto.id}>
-              <td>img</td>
-              <td>nombre</td>
-              <td>precio</td>
-              <td>1</td>
-              <button style={{ color: '#ff5733', borderRadius: '50%', cursor: 'pointer' }}>X</button>
+              <td><img src={`/images/${moto.img}`} alt="" width={40} height={40} style={{ borderRadius: '50%' }} /></td>
+              <td>{moto.name}</td>
+              <td>{moto.precio}</td>
+              <td>
+                <button onClick={() => handleDescrementQuantity(moto.id)}>-</button>
+                {moto.quantity}
+                <button onClick={() => handleIncrementQuantity(moto.id)}>+</button>
+              </td>
+              <td>
+                <button onClick={() => handleDeleteItem(moto.id)} style={{ color: '#ff5733', borderRadius: '50%', cursor: 'pointer' }}>X</button>
+              </td>
             </tr>
           ))
           }
@@ -35,10 +72,10 @@ export default function ModalCarrito({ isFlex, carrito, setCarrito }: { isFlex: 
         <tfoot>
           <tr>
             <td colSpan={3}>total</td>
-            <td>0</td>
+            <td>S/.{totalCart}</td>
           </tr>
           <tr>
-            <td><button className='btn-clear-carrito'>VACIAR CARRITO</button></td>
+            <td><button className='btn-clear-carrito' onClick={() => handleclearCart()}>VACIAR CARRITO</button></td>
           </tr>
         </tfoot>
       </table>
