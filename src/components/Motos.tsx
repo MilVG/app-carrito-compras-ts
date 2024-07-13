@@ -11,14 +11,14 @@ export default function Motos({ moto, handleAddToCarrito }: carritoProps) {
       <div className="motos_section">
         <div className='container-image'>
 
-        <img src={"/images/" + img} alt="motos" className='motos_img' />
+          <img src={"/images/" + img} alt="motos" className='motos_img' />
         </div>
-          <div className="details-motos">
-            <h3>{name}</h3>
-            <p className='price-motos'>S/.{precio}</p>
-            <p className='text_description-motos'>{description}</p>
-          </div>
-          <button onClick={() => handleAddToCarrito(moto)}>Agregar al Carrito</button>
+        <div className="details-motos">
+          <h3>{name}</h3>
+          <p className='price-motos'>S/.{precio}</p>
+          <p className='text_description-motos'>{description}</p>
+        </div>
+        <button onClick={() => handleAddToCarrito(moto)}>Agregar al Carrito</button>
       </div>
 
     </div>
