@@ -1,39 +1,10 @@
-import { useMemo } from 'react'
-import { Carrito } from '../../types/types.ts'
-export default function ModalCarrito({ isFlex, carrito, setCarrito }: { isFlex: boolean, carrito: Carrito, setCarrito: React.Dispatch<React.SetStateAction<Carrito>> }) {
+import { cartProps } from '../../types/types.ts'
+export default function ModalCarrito(
+  {carrito,isFlex,totalCart,handleIncrementQuantity,handleDescrementQuantity,handleDeleteItem,handleclearCart
+  }:cartProps
+) {
 
-
-  const totalCart = useMemo(() => carrito.reduce((total, item) => total + (item.quantity * item.precio), 0), [carrito])
-
-  function handleclearCart() {
-    setCarrito([])
-    
-  }
-  function handleDeleteItem(id: number) {
-    const newCarrito = carrito.filter((item) => item.id !== id)
-    setCarrito(newCarrito)
-  }
-
-  function handleIncrementQuantity(id: number) {
-    const newCarrito = carrito.map((item) => {
-      if (item.id === id && item.quantity < 5) {
-        item.quantity++
-      }
-
-      return item
-    })
-    
-    setCarrito(newCarrito)
-  }
-  function handleDescrementQuantity(id:number){
-    const newCarrito = carrito.map((item) =>{
-      if(item.id === id && item.quantity > 1){
-        item.quantity--
-      }
-      return item
-    })
-    setCarrito(newCarrito)
-  }
+  
   return (
     <div className='modal-carrito' style={{ display: isFlex ? 'flex' : 'none' }}>
 

@@ -22,3 +22,24 @@ export type carritoPropsRoot = {
   setCarrito: React.Dispatch<React.SetStateAction<Motoslist[]>>
 }
 
+export type motos = {
+  datamotos: Motoslist[];
+  handleToCarrito:handleToCarrito
+}
+
+export type handleclearCart = () => void
+export type handleDeleteItem = (id: number) => void
+export type handleIncrementQuantity = (id: number) => void
+export type handleDescrementQuantity = (id: number) => void
+
+export type cartProps ={
+  carrito: Motoslist[]
+  setCarrito: React.Dispatch<React.SetStateAction<Motoslist[]>>
+  handleshowCarrito:handleshowCarrito
+  isFlex: boolean
+  totalCart: number
+  handleclearCart:handleclearCart
+  handleDeleteItem:handleDeleteItem
+  handleIncrementQuantity:handleIncrementQuantity
+  handleDescrementQuantity:handleDescrementQuantity
+}

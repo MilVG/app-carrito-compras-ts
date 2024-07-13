@@ -3,34 +3,27 @@ import Footer from './layouts/Footer'
 import Main from './layouts/Main'
 import './styles/mainaside_style.css'
 import Carrito from './components/Carrito'
-
-import { Carrito as Cart} from './types/types.ts'
-import { useState } from 'react'
+import useCart from './hooks/usecart'
 function App() {
-  const [carrito, setCarrito] = useState<Cart>([])
-
-
-  //camibar el estado de un componente
-  const [isFlex , setIsFlex] = useState<boolean>(false)
-
-  function handleshowCarrito() {
-    setIsFlex(!isFlex)
-  }
+  const {handleshowCarrito,isFlex,setCarrito,carrito,datamotos,handleToCarrito,totalCart,handleclearCart,handleDeleteItem,handleIncrementQuantity,handleDescrementQuantity} = useCart()
   return (
     <>
       <Header />
       <Carrito
-        handleshowCarrito={handleshowCarrito}
-        isFlex={isFlex}
-        setCarrito={setCarrito}
-        carrito={carrito}
+        carrito = {carrito}
+        setCarrito = {setCarrito}
+        handleshowCarrito = {handleshowCarrito}
+        isFlex = {isFlex}
+        totalCart={totalCart}
+        handleIncrementQuantity={handleIncrementQuantity}
+        handleDescrementQuantity={handleDescrementQuantity}
+        handleDeleteItem={handleDeleteItem}
+        handleclearCart={handleclearCart}
       />
       <div  className='container_main' >
-
-
-        <Main 
-          carrito={carrito}
-          setCarrito={setCarrito}
+        <Main
+          datamotos={datamotos}
+          handleToCarrito={handleToCarrito}
         />
       </div>
       <Footer />

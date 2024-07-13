@@ -1,5 +1,10 @@
 import '../styles/footer_style.css'
 export default function Footer() {
+  function test(){
+    const newelement =document.createElement('div');
+    newelement.className = 'footer';
+    document.body.appendChild(newelement);
+  }
   return (
     <footer className="footer">
       <div >

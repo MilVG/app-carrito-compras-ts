@@ -9,7 +9,10 @@ export default function Motos({ moto, handleAddToCarrito }: carritoProps) {
 
     <div className="motos-container" key={id}>
       <div className="motos_section">
+        <div className='container-image'>
+
         <img src={"/images/" + img} alt="motos" className='motos_img' />
+        </div>
           <div className="details-motos">
             <h3>{name}</h3>
             <p className='price-motos'>S/.{precio}</p>
