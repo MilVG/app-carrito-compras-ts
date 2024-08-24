@@ -1,15 +1,15 @@
 import '../styles/main_style.css'
 import Motos from '../components/Motos'
-import {motos} from '../types/types'
-export default function Main( {datamotos,handleToCarrito}: motos) {
+import { Motoslist, motos } from '../types/types'
+export default function Main({ datamotos, dispatch }: motos) {
   return (
     <main className="main">
       {
-        datamotos.map((moto) => (
+        datamotos.map((moto: Motoslist) => (
           <Motos
             key={moto.id}
             moto={moto}
-            handleAddToCarrito={handleToCarrito}
+            dispatch={dispatch}
           />
         ))
       }
