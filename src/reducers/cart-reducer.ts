@@ -10,12 +10,18 @@ export type CarritoAcciones =
 
 export type CartState = {
   data: Motoslist[],
-  cart: Carrito[]
+  cart: Carrito
 }
+
+const initialCart = (): Carrito => {
+  const datStorage = localStorage.getItem('carrito')
+  return datStorage ? JSON.parse(datStorage) : []
+}
+
 
 export const initialState: CartState = {
   data: listmotos,
-  cart: []
+  cart: initialCart()
 }
 
 export const carritoReducer = (
@@ -24,32 +30,80 @@ export const carritoReducer = (
 ) => {
   switch (acciones.type) {
     case "añadir-carrito":
+
+      let updateCarrito: Motoslist[] = []
+
+      const itemExists = state.cart.find(moto => moto.id == acciones.payload.item.id)
+      if (itemExists) {
+        updateCarrito = state.cart.map(item => {
+          if (item.id === acciones.payload.item.id) {
+            if (item.quantity < 5) {
+              return { ...item, quantity: item.quantity + 1 }
+            } else {
+
+              return item
+            }
+          } else {
+            return item
+          }
+        })
+      } else {
+        const newItem: Motoslist = { ...acciones.payload.item, quantity: 1 }
+        updateCarrito = [...state.cart, newItem]
+      }
+
+
       return {
-        ...state
+        ...state,
+        cart: updateCarrito
       }
 
     case "eliminar-item-carrito":
 
+      //const newCarrito = carrito.filter((item) => item.id !== id)
+      const removeitemcarrito = state.cart.filter(item => item.id !== acciones.payload.id)
       return {
-        ...state
+        ...state,
+        cart: removeitemcarrito
       }
     case "aumentar-cantidad-item":
+
+      const newCarrito = state.cart.map((item) => {
+        if (item.id === acciones.payload.id && item.quantity < 5) {
+          item.quantity++
+        }
+
+        return item
+      })
+
       return {
-        ...state
+        ...state,
+        cart: newCarrito
       }
 
     case "reducir-cantidad-item":
+
+      const DecrementItem = state.cart.map((item) => {
+        if (item.id === acciones.payload.id && item.quantity > 1) {
+          item.quantity--
+        }
+        return item
+      })
+
       return {
-        ...state
+        ...state,
+        cart: DecrementItem
       }
 
     case "vaciar-carrito":
+
       return {
-        ...state
+        ...state,
+        cart: []
       }
 
     default:
-      state
+      return state
 
   }
 }
