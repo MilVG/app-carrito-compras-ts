@@ -1,12 +1,5 @@
-type Moto = {
-  id: number;
-  name: string;
-  description: string;
-  quantity: number;
-  precio: number;
-  img: string;
-}
-export const listmotos: Array<Moto> = [
+import { Motoslist } from '../types/types.ts'
+export const listmotos: Motoslist[] = [
   {
     id: 1,
     name: "Yamaha",
