@@ -1,13 +1,20 @@
+import { Dispatch } from 'react'
 import '../styles/motos/motos_style.css'
-import { carritoProps } from '../types/types.ts'
+import { Motoslist } from '../types/types'
+import { CarritoAcciones } from '../reducers/cart-reducer'
 
-export default function Motos({ moto, handleAddToCarrito }: carritoProps) {
+type motosPropsItems = {
+  moto: Motoslist,
+  dispatch: Dispatch<CarritoAcciones>
+}
 
-  const { id, name, description, img, precio } = moto
+export default function Motos({ moto, dispatch }: motosPropsItems) {
+
+  const { name, description, img, precio } = moto
 
   return (
 
-    <div className="motos-container" key={id}>
+    <div className="motos-container">
       <div className="motos_section">
         <div className='container-image'>
           <img src={"/images/" + img} alt="motos" className='motos_img' />
@@ -17,7 +24,7 @@ export default function Motos({ moto, handleAddToCarrito }: carritoProps) {
           <p className='price-motos'>S/.{precio}</p>
           <p className='text_description-motos'>{description}</p>
         </div>
-        <button onClick={() => handleAddToCarrito(moto)}>Agregar al Carrito</button>
+        <button onClick={() => dispatch({ type: 'añadir-carrito', payload: { item: moto } })}>Agregar al Carrito</button>
       </div>
 
     </div>
